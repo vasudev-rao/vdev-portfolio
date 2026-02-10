@@ -67,7 +67,7 @@ export default function About() {
             </p>
 
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              I'm passionate about{" "}
+              I&apos;m passionate about{" "}
               <span className="font-semibold text-[#0A1A3E]">
                 data architecture, fintech systems, streaming pipelines, and MLOps
               </span>
