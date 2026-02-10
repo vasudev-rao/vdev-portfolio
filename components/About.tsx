@@ -20,57 +20,52 @@ export default function About() {
             shadow-[0_20px_60px_rgba(1,31,75,0.18)]
           "
         >
-          {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#011F4B] text-center mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#011F4B] mb-6 text-center">
             About Me
           </h2>
 
-          <p className="text-lg text-slate-700 text-center max-w-[900px] mx-auto mb-10">
+          <p className="text-lg text-slate-700 max-w-3xl mx-auto text-center mb-10">
             I design, build, and operate production-grade data platforms that teams trust.
           </p>
 
-          {/* Main Content */}
-          <div className="max-w-[1050px] mx-auto space-y-6 text-slate-700 text-base leading-relaxed">
+          <div className="max-w-4xl mx-auto space-y-5 text-slate-700">
             <p>
-              I’m a <strong>Senior Data Engineer</strong> with 6+ years of experience designing,
-              building, and optimizing large-scale data platforms across{" "}
-              <strong>AWS, GCP, Databricks</strong>, and modern lakehouse architectures.
+              I am a <strong>Senior Data Engineer</strong> with 6+ years of experience
+              designing, building, and optimizing large-scale data platforms across
+              <strong> AWS, GCP, Databricks</strong>, and modern lakehouse architectures.
             </p>
 
             <p>
-              I specialize in building reliable batch and real-time systems using{" "}
-              <strong>
-                PySpark, Delta Lake, Snowflake, BigQuery, Airflow, and Kafka
-              </strong>.
+              I specialize in building real-time and batch data systems using
+              <strong> PySpark, Delta Lake, Snowflake, BigQuery, Airflow</strong>, and Kafka.
             </p>
 
             <p>
-              I’m passionate about <strong>data architecture</strong>, fintech systems,
-              streaming pipelines, and <strong>MLOps</strong>.
+              I am passionate about <strong>data architecture</strong>, fintech systems,
+              streaming pipelines, and MLOps.
             </p>
           </div>
 
-          {/* Cards */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1050px] mx-auto">
-            <div className="rounded-2xl p-6 bg-blue-100/50 border border-blue-200">
-              <h3 className="text-lg font-bold text-[#011F4B] mb-3">
+          <div className="grid md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
+            <div className="rounded-2xl bg-blue-100/60 border border-blue-200 p-6">
+              <h3 className="text-xl font-semibold text-[#011F4B] mb-3">
                 What I Do
               </h3>
-              <ul className="space-y-2 text-slate-700">
-                <li>• Build large-scale data platforms</li>
-                <li>• Develop real-time pipelines (Kafka + Spark)</li>
-                <li>• Design lakehouse architectures</li>
+              <ul className="list-disc list-inside text-slate-700 space-y-1">
+                <li>Build large-scale data platforms</li>
+                <li>Develop real-time pipelines (Kafka + Spark)</li>
+                <li>Design lakehouse architectures</li>
               </ul>
             </div>
 
-            <div className="rounded-2xl p-6 bg-blue-100/50 border border-blue-200">
-              <h3 className="text-lg font-bold text-[#011F4B] mb-3">
-                What I’m Focusing On
+            <div className="rounded-2xl bg-blue-100/60 border border-blue-200 p-6">
+              <h3 className="text-xl font-semibold text-[#011F4B] mb-3">
+                What I Am Focusing On
               </h3>
-              <ul className="space-y-2 text-slate-700">
-                <li>• Fintech AI & credit risk pipelines</li>
-                <li>• LLM & vector database engineering</li>
-                <li>• MLOps architecture</li>
+              <ul className="list-disc list-inside text-slate-700 space-y-1">
+                <li>Fintech AI and credit risk pipelines</li>
+                <li>LLM and vector database engineering</li>
+                <li>MLOps architecture</li>
               </ul>
             </div>
           </div>
