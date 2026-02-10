@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Send } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
+import LayoutContainer from '@/components/LayoutContainer'
 
 export default function Contact() {
   const [email, setEmail] = useState('')
@@ -19,17 +20,15 @@ export default function Contact() {
   }
 
   return (
-    <section className="w-full pt-36 pb-32 flex justify-center relative overflow-hidden">
+    <section className="w-full pt-36 pb-32 relative overflow-hidden">
 
-      {/* Soft background glow (same scale as hero) */}
+      {/* Soft background glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[800px] h-[300px] bg-blue-300/20 blur-[140px] rounded-full mt-40" />
       </div>
 
-      {/* SAME CONTAINER AS HERO */}
-      <div className="container-wide text-center relative z-10">
-
-        {/* SAME GLASS CARD AS HERO */}
+      {/* ✅ SAME CONTAINER AS NAVBAR / HERO / ABOUT */}
+      <LayoutContainer>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,6 +36,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="
             section-card
+            w-full
             rounded-3xl
             px-10 md:px-16
             py-14 md:py-20
@@ -44,6 +44,9 @@ export default function Contact() {
             bg-[rgba(219,234,254,0.45)]
             backdrop-blur-[28px]
             shadow-[0_20px_60px_rgba(1,31,75,0.18)]
+            text-center
+            relative
+            z-10
           "
         >
           {/* Title */}
@@ -57,7 +60,7 @@ export default function Contact() {
             and AI-ready architectures.
           </p>
 
-          {/* Social Actions (Hero-style buttons) */}
+          {/* Social Actions */}
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="mailto:vasudevrao@email.com"
@@ -104,7 +107,7 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* Newsletter (still hero-sized, not tall) */}
+          {/* Newsletter */}
           <div className="mt-12 max-w-xl mx-auto">
             <form onSubmit={handleSubscribe} className="flex gap-3">
               <input
@@ -144,7 +147,7 @@ export default function Contact() {
             )}
           </div>
         </motion.div>
-      </div>
+      </LayoutContainer>
     </section>
   )
 }

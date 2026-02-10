@@ -1,27 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LayoutContainer from "@/components/LayoutContainer";
 
 export default function Footer() {
   return (
-    <section className="w-full pt-36 pb-32 flex justify-center relative overflow-hidden">
-
+    <section className="w-full pt-36 pb-32 relative overflow-hidden">
       {/* Hero-scale glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[800px] h-[300px] bg-blue-300/15 blur-[140px] rounded-full mt-40" />
       </div>
 
-      {/* SAME CONTAINER AS HERO */}
-      <div className="container-wide text-center relative z-10">
-
-        {/* SAME CARD SIZE AS HERO */}
+      {/* ✅ SAME CONTAINER AS ALL OTHER SECTIONS */}
+      <LayoutContainer>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="
             section-card
+            w-full
             rounded-3xl
             px-10 md:px-16
             py-14 md:py-20
@@ -29,11 +28,13 @@ export default function Footer() {
             bg-[rgba(219,234,254,0.45)]
             backdrop-blur-[28px]
             shadow-[0_20px_60px_rgba(1,31,75,0.18)]
+            text-center
+            relative
+            z-10
           "
         >
-          {/* Content grid (UNCHANGED) */}
+          {/* Content grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-left">
-
             <div>
               <h3 className="text-lg font-semibold text-[#011F4B]">
                 About Me
@@ -89,15 +90,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Divider */}
           <div className="mt-12 h-px bg-blue-200/40" />
 
-          {/* Copyright */}
           <p className="mt-6 text-sm text-[#0A1A3F]/60">
             © {new Date().getFullYear()} Vasudev Rao — All Rights Reserved.
           </p>
         </motion.div>
-      </div>
+      </LayoutContainer>
     </section>
   );
 }

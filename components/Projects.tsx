@@ -12,6 +12,7 @@ import {
   LineChart,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import LayoutContainer from '@/components/LayoutContainer'
 
 const projects = [
   /* 🔒 DATA UNCHANGED */
@@ -103,15 +104,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 flex justify-center relative overflow-hidden">
+    <section id="projects" className="py-24 relative overflow-hidden">
 
       {/* Soft background glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[900px] h-[360px] bg-blue-300/15 blur-[120px] rounded-full mt-32" />
       </div>
 
-      <div className="container-wide relative z-10 text-center">
-
+      {/* ✅ SAME CONTAINER AS ALL OTHER SECTIONS */}
+      <LayoutContainer>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,6 +120,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="
             section-card
+            w-full
             rounded-3xl
             px-10 md:px-16
             py-12 md:py-16
@@ -126,6 +128,9 @@ export default function Projects() {
             bg-[rgba(219,234,254,0.45)]
             backdrop-blur-[28px]
             shadow-[0_20px_60px_rgba(1,31,75,0.18)]
+            text-center
+            relative
+            z-10
           "
         >
           {/* Header */}
@@ -157,7 +162,6 @@ export default function Projects() {
                     text-left
                   "
                 >
-                  {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-gradient-to-br from-[#0A1A3E] to-blue-700 rounded-xl">
                       <Icon className="h-5 w-5 text-white" />
@@ -220,7 +224,7 @@ export default function Projects() {
             })}
           </div>
         </motion.div>
-      </div>
+      </LayoutContainer>
     </section>
   )
 }

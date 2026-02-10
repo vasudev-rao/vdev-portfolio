@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import LayoutContainer from "@/components/LayoutContainer";
 
 const skills = [
   {
@@ -66,16 +67,15 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="w-full py-24 flex justify-center relative overflow-hidden"
+      className="w-full py-24 relative overflow-hidden"
     >
       {/* Ambient glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[800px] h-[300px] bg-blue-300/15 blur-[120px] rounded-full mt-32" />
       </div>
 
-      {/* SAME STRUCTURE AS HERO */}
-      <div className="container-wide relative z-10 text-center">
-
+      {/* ✅ SAME CONTAINER AS NAVBAR / HERO */}
+      <LayoutContainer>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,6 +83,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="
             section-card
+            w-full
             rounded-3xl
             px-10 md:px-16
             py-12 md:py-16
@@ -90,6 +91,9 @@ export default function Skills() {
             bg-[rgba(219,234,254,0.45)]
             backdrop-blur-[28px]
             shadow-[0_20px_60px_rgba(1,31,75,0.18)]
+            text-center
+            relative
+            z-10
           "
         >
           {/* Title */}
@@ -97,7 +101,7 @@ export default function Skills() {
             Skills & Technologies
           </h2>
 
-          {/* Grid (tightened) */}
+          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {skills.map((skillGroup, index) => (
               <motion.div
@@ -132,16 +136,15 @@ export default function Skills() {
                         border border-blue-200
                       "
                     >
-                      {item}
+                        {item}
                     </li>
                   ))}
                 </ul>
               </motion.div>
             ))}
           </div>
-
         </motion.div>
-      </div>
+      </LayoutContainer>
     </section>
   );
 }

@@ -1,29 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LayoutContainer from "@/components/LayoutContainer";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="w-full py-24 flex justify-center relative overflow-hidden"
+      className="w-full py-24 relative overflow-hidden"
     >
-      {/* Soft background glow (unchanged) */}
+      {/* Soft background glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[700px] h-[300px] bg-blue-300/15 blur-[120px] rounded-full mt-40" />
       </div>
 
-      {/* SAME CONTAINER AS HERO */}
-      <div className="container-wide relative z-10 text-center">
-
-        {/* 🔒 WIDTH + HEIGHT LOCK (MATCH HERO) */}
+      <LayoutContainer>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-120px" }}
           className="
             section-card
+            w-full
             rounded-3xl
             px-10 md:px-16
             py-12 md:py-16
@@ -31,6 +30,9 @@ export default function About() {
             bg-[rgba(219,234,254,0.45)]
             backdrop-blur-[28px]
             shadow-[0_20px_60px_rgba(1,31,75,0.18)]
+            text-center
+            relative
+            z-10
           "
         >
           {/* Title */}
@@ -38,12 +40,12 @@ export default function About() {
             About Me
           </h2>
 
-          {/* Subtitle (tightened spacing) */}
+          {/* Subtitle */}
           <p className="mt-4 text-lg md:text-xl font-medium text-[#0A1A3E]/80">
             I design, build, and operate production-grade data platforms that teams trust.
           </p>
 
-          {/* Paragraphs (spacing reduced, content unchanged) */}
+          {/* Content */}
           <div className="mt-8 space-y-5 text-left">
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               I am a{" "}
@@ -54,28 +56,25 @@ export default function About() {
               large-scale data platforms across{" "}
               <span className="font-semibold text-[#0A1A3E]">
                 AWS, GCP, Databricks, and modern lakehouse architectures
-              </span>
-              .
+              </span>.
             </p>
 
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               I specialize in building real-time and batch data systems using{" "}
               <span className="font-semibold text-[#0A1A3E]">
                 PySpark, Delta Lake, Snowflake, BigQuery, Airflow, Kafka
-              </span>
-              .
+              </span>.
             </p>
 
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               I&apos;m passionate about{" "}
               <span className="font-semibold text-[#0A1A3E]">
                 data architecture, fintech systems, streaming pipelines, and MLOps
-              </span>
-              .
+              </span>.
             </p>
           </div>
 
-          {/* Highlights (same content, tighter spacing) */}
+          {/* Highlights */}
           <div className="mt-10 grid md:grid-cols-2 gap-6 text-left">
             {[
               {
@@ -89,7 +88,7 @@ export default function About() {
                 ],
               },
               {
-                title: "What I'm Focusing On",
+                title: "What I’m Focusing On",
                 items: [
                   "Fintech AI + credit risk pipelines",
                   "LLM & vector DB engineering",
@@ -121,9 +120,8 @@ export default function About() {
               </div>
             ))}
           </div>
-
         </motion.div>
-      </div>
+      </LayoutContainer>
     </section>
   );
 }

@@ -12,16 +12,26 @@ type Particle = {
 
 export default function FloatingParticles() {
   const [particles, setParticles] = useState<Particle[]>([])
+  const [viewportHeight, setViewportHeight] = useState(0)
 
   useEffect(() => {
+    const width = window.innerWidth
+    const height = window.innerHeight
+
+    setViewportHeight(height)
+
     const generated = Array.from({ length: 20 }).map(() => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
+      x: Math.random() * width,
+      y: Math.random() * height,
       size: Math.random() * 2 + 1,
       duration: Math.random() * 15 + 20,
     }))
+
     setParticles(generated)
   }, [])
+
+  // ⛔ Prevent render until client values exist
+  if (!viewportHeight) return null
 
   return (
     <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
@@ -36,7 +46,7 @@ export default function FloatingParticles() {
             top: p.y,
           }}
           animate={{
-            y: [-40, window.innerHeight + 40],
+            y: [-40, viewportHeight + 40],
             opacity: [0.15, 0.4, 0.15],
           }}
           transition={{

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import LayoutContainer from "@/components/LayoutContainer";
 
 interface GridBannerProps {
   title: string;
@@ -26,24 +27,26 @@ export default function GridBanner({ title, subtitle }: GridBannerProps) {
       <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent" />
 
-      {/* Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45 }}
-        viewport={{ once: true }}
-        className="relative z-10 mx-auto max-w-6xl px-6 text-center"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0A1A3E]">
-          {title}
-        </h2>
+      {/* ✅ ALIGNED CONTENT */}
+      <LayoutContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          viewport={{ once: true }}
+          className="relative z-10 text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0A1A3E]">
+            {title}
+          </h2>
 
-        {subtitle && (
-          <p className="mt-3 text-gray-600">
-            {subtitle}
-          </p>
-        )}
-      </motion.div>
+          {subtitle && (
+            <p className="mt-3 text-gray-600 max-w-[900px] mx-auto">
+              {subtitle}
+            </p>
+          )}
+        </motion.div>
+      </LayoutContainer>
     </section>
   );
 }
