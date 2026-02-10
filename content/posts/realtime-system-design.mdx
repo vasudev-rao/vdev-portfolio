@@ -21,7 +21,7 @@ First, let's clarify terminology:
 
 | Type | Latency | Use Cases | Examples |
 |------|---------|-----------|----------|
-| **Real-Time** | <100ms | Trading, gaming, fraud detection | Stock exchanges, multiplayer games |
+| **Real-Time** | &lt;100ms | Trading, gaming, fraud detection |
 | **Near Real-Time** | 1s-5s | Dashboards, alerting, recommendations | Metrics dashboards, anomaly detection |
 | **Micro-Batch** | 5s-5min | Analytics, ETL | Streaming aggregations |
 | **Batch** | Hours/days | Historical analytics, reporting | Daily reports, data warehousing |
@@ -159,14 +159,14 @@ consumer_config = {
 
 ### Processing Layer: Apache Flink
 
-For true real-time (<100ms), Apache Flink is superior to Spark Streaming.
+For true real-time (&lt;100ms), Apache Flink is superior to Spark Streaming.
 
 **Flink vs Spark Streaming:**
 
 | Feature | Flink | Spark Streaming |
 |---------|-------|-----------------|
 | Model | True streaming | Micro-batching |
-| Latency | <100ms | 500ms-5s |
+| Latency | &lt;100ms | 500ms-5s |
 | State Management | Better | Good |
 | Exactly-once | Native | Achievable |
 
