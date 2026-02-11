@@ -31,17 +31,17 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="pt-4 flex justify-center">
-        {/* ✅ WIDTH FIXED HERE */}
         <div className="w-full max-w-[1400px] px-4">
+          
           <div
             className={cn(
               `
-              rounded-full
               px-6 py-3
               border
               transition-all duration-300
               backdrop-blur-xl
               `,
+              mobileMenuOpen ? `rounded-2xl` : `rounded-full`,
               scrolled
                 ? `
                   bg-[rgba(219,234,254,0.42)]
@@ -56,11 +56,13 @@ export default function Navbar() {
             )}
           >
             <div className="flex items-center justify-between">
+              
               {/* Logo */}
-              <Link href="/" className="flex items-center">
-                <span className="text-[1.3rem] font-bold tracking-tight text-[#011F4B]">
-                  VASUDEV RAO
-                </span>
+              <Link
+                href="/"
+                className="text-[1.3rem] font-bold tracking-tight text-[#011F4B]"
+              >
+                VASUDEV RAO
               </Link>
 
               {/* Desktop Navigation */}
@@ -122,7 +124,7 @@ export default function Navbar() {
                         rounded-lg
                         text-sm font-medium
                         text-[#011F4B]
-                        transition-all
+                        transition-all duration-200
                         hover:bg-blue-100/50
                       "
                     >
@@ -133,6 +135,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
+
         </div>
       </div>
     </nav>
