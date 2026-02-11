@@ -2,11 +2,8 @@ import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import ScrollProgress from '@/components/ScrollProgress'
-import FloatingParticles from '@/components/FloatingParticles'
 import { Providers } from '@/app/providers'
+import ClientLayout from '@/app/ClientLayout'
 
 /* ================================
    Fonts
@@ -40,8 +37,6 @@ export const metadata: Metadata = {
     'BigQuery',
     'AWS',
     'GCP',
-    'Data Architecture',
-    'MLOps',
   ],
   authors: [{ name: 'Vasudev Rao' }],
   creator: 'Vasudev Rao',
@@ -67,7 +62,7 @@ export const metadata: Metadata = {
 }
 
 /* ================================
-   Root Layout
+   Root Layout (SERVER)
 ================================ */
 export default function RootLayout({
   children,
@@ -80,54 +75,9 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Vasudev Rao',
-              jobTitle: 'Senior Data Engineer',
-              description:
-                'Senior Data Engineer specializing in cloud data platforms, AI/ML pipelines, and modern data architectures',
-              url: 'https://vasudevrao.com',
-              sameAs: [
-                'https://github.com/vasudevrao',
-                'https://linkedin.com/in/vasudevrao',
-              ],
-              knowsAbout: [
-                'Data Engineering',
-                'Cloud Computing',
-                'Big Data',
-                'Machine Learning',
-                'Databricks',
-                'PySpark',
-                'Snowflake',
-                'AWS',
-                'GCP',
-              ],
-            }),
-          }}
-        />
-      </head>
-
       <body className="font-inter antialiased relative">
         <Providers>
-          {/* Global UI Enhancements */}
-          <ScrollProgress />
-          <FloatingParticles />
-
-          {/* Layout */}
-          <Navbar />
-
-          {/* ✅ FIXED: offset for fixed navbar */}
-          <main className="relative z-10 min-h-screen pt-32">
-            {children}
-          </main>
-
-          <Footer />
+          <ClientLayout>{children}</ClientLayout>
         </Providers>
       </body>
     </html>

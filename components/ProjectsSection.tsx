@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import {
   ExternalLink,
   Github,
@@ -15,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import LayoutContainer from '@/components/LayoutContainer'
 
 const projects = [
-  /* 🔒 DATA UNCHANGED */
+  /* 🔒 DATA UNCHANGED — SAME AS YOURS */
   {
     title: 'Real-time Streaming Pipeline',
     description:
@@ -102,22 +99,16 @@ const projects = [
   },
 ]
 
-export default function Projects() {
+export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
-
-      {/* Soft background glow */}
+      {/* Background glow */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[900px] h-[360px] bg-blue-300/15 blur-[120px] rounded-full mt-32" />
       </div>
 
-      {/* ✅ SAME CONTAINER AS ALL OTHER SECTIONS */}
       <LayoutContainer>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          viewport={{ once: true }}
+        <div
           className="
             section-card
             w-full
@@ -133,7 +124,6 @@ export default function Projects() {
             z-10
           "
         >
-          {/* Header */}
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#0A1A3E] mb-3">
             Featured Projects
           </h2>
@@ -141,17 +131,12 @@ export default function Projects() {
             Production-grade data engineering projects showcasing end-to-end expertise
           </p>
 
-          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => {
               const Icon = project.icon
               return (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.06 }}
                   className="
                     rounded-2xl
                     p-6
@@ -219,11 +204,11 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )
             })}
           </div>
-        </motion.div>
+        </div>
       </LayoutContainer>
     </section>
   )
