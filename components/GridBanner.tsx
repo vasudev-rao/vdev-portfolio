@@ -10,8 +10,8 @@ interface GridBannerProps {
 
 export default function GridBanner({ title, subtitle }: GridBannerProps) {
   return (
-    <section className="relative overflow-hidden py-20 bg-white">
-      {/* Grid background */}
+    <section className="relative overflow-hidden py-24 bg-white">
+      {/* Grid background (UNCHANGED) */}
       <div
         className="absolute inset-0"
         style={{
@@ -23,25 +23,24 @@ export default function GridBanner({ title, subtitle }: GridBannerProps) {
         }}
       />
 
-      {/* Fade top & bottom */}
-      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent" />
+      {/* Fade top & bottom (UNCHANGED) */}
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
-      {/* ✅ ALIGNED CONTENT */}
       <LayoutContainer>
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-60px" }}
           className="relative z-10 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A1A3E]">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#0A1A3E]">
             {title}
           </h2>
 
           {subtitle && (
-            <p className="mt-3 text-gray-600 max-w-[900px] mx-auto">
+            <p className="mt-3 text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-6">
               {subtitle}
             </p>
           )}

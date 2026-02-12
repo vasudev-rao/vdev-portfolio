@@ -1,4 +1,3 @@
-import GridBanner from "@/components/GridBanner";
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Skills from '@/components/Skills'
@@ -9,18 +8,17 @@ import Contact from '@/components/Contact'
 
 export default function Home() {
   return (
-    <>
+    <main className="w-full">
       <Hero />
       <About />
       <Skills />
       <Experience />
 
-      {/* ✅ Animation-safe wrapper */}
       <ProjectsMotion>
         <Projects />
       </ProjectsMotion>
 
       <Contact />
-    </>
+    </main>
   )
 }

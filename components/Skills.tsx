@@ -67,26 +67,25 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="w-full py-24 relative overflow-hidden"
+      className="w-full py-20 md:py-24 relative overflow-hidden"
     >
-      {/* Ambient glow */}
+      {/* Ambient glow (UNCHANGED) */}
       <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[800px] h-[300px] bg-blue-300/15 blur-[120px] rounded-full mt-32" />
       </div>
 
-      {/* ✅ SAME CONTAINER AS NAVBAR / HERO */}
       <LayoutContainer>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
           viewport={{ once: true }}
           className="
             section-card
             w-full
             rounded-3xl
-            px-10 md:px-16
-            py-12 md:py-16
+            px-8 md:px-16
+            py-14 md:py-18
             border border-blue-200/50
             bg-[rgba(219,234,254,0.45)]
             backdrop-blur-[28px]
@@ -96,47 +95,45 @@ export default function Skills() {
             z-10
           "
         >
-          {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0A1A3E] mb-8">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0A1A3E] mb-6">
             Skills & Technologies
           </h2>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
             {skills.map((skillGroup, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{ duration: 0.35, delay: index * 0.06 }}
                 viewport={{ once: true }}
                 className="
                   rounded-2xl
-                  p-6
+                  p-5
                   border border-blue-200/40
                   bg-blue-100/40
                   backdrop-blur-xl
-                  shadow-[0_12px_32px_rgba(1,31,75,0.12)]
+                  shadow-[0_10px_26px_rgba(1,31,75,0.10)]
                 "
               >
-                <h3 className="text-xl font-bold text-[#0A1A3E] mb-4">
+                <h3 className="text-sm font-semibold text-[#0A1A3E] mb-3">
                   {skillGroup.category}
                 </h3>
 
-                <ul className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-1.5">
                   {skillGroup.items.map((item, idx) => (
                     <li
                       key={idx}
                       className="
-                        text-sm font-medium
-                        px-3 py-1.5
+                        text-[11px] font-medium
+                        px-2.5 py-1
                         rounded-full
                         bg-white/60
                         text-[#0A1A3E]
                         border border-blue-200
                       "
                     >
-                        {item}
+                      {item}
                     </li>
                   ))}
                 </ul>

@@ -8,6 +8,7 @@ type Particle = {
   y: number
   size: number
   duration: number
+  delay: number
 }
 
 export default function FloatingParticles() {
@@ -15,22 +16,29 @@ export default function FloatingParticles() {
   const [viewportHeight, setViewportHeight] = useState(0)
 
   useEffect(() => {
-    const width = window.innerWidth
-    const height = window.innerHeight
+    const generateParticles = () => {
+      const width = window.innerWidth
+      const height = window.innerHeight
 
-    setViewportHeight(height)
+      setViewportHeight(height)
 
-    const generated = Array.from({ length: 20 }).map(() => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      size: Math.random() * 2 + 1,
-      duration: Math.random() * 15 + 20,
-    }))
+      const generated = Array.from({ length: 20 }).map(() => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 2 + 1,
+        duration: Math.random() * 12 + 22,
+        delay: Math.random() * 6,
+      }))
 
-    setParticles(generated)
+      setParticles(generated)
+    }
+
+    generateParticles()
+
+    window.addEventListener('resize', generateParticles)
+    return () => window.removeEventListener('resize', generateParticles)
   }, [])
 
-  // ⛔ Prevent render until client values exist
   if (!viewportHeight) return null
 
   return (
@@ -51,6 +59,7 @@ export default function FloatingParticles() {
           }}
           transition={{
             duration: p.duration,
+            delay: p.delay,
             repeat: Infinity,
             ease: 'linear',
           }}
