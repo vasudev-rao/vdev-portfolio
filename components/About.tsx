@@ -47,7 +47,19 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 mt-10 max-w-3xl mx-auto">
-            <div className="rounded-2xl bg-blue-100/60 border border-blue-200 p-5">
+            <div
+              className="
+                rounded-2xl
+                p-5
+                border border-blue-200/40
+                bg-blue-100/40
+                backdrop-blur-xl
+                shadow-[0_10px_26px_rgba(1,31,75,0.10)]
+                hover:shadow-[0_14px_34px_rgba(1,31,75,0.14)]
+                hover:-translate-y-1
+                transition-all duration-300
+              "
+            >
               <h3 className="text-sm font-semibold text-[#011F4B] mb-2">
                 What I Do
               </h3>
@@ -58,7 +70,19 @@ export default function About() {
               </ul>
             </div>
 
-            <div className="rounded-2xl bg-blue-100/60 border border-blue-200 p-5">
+            <div
+              className="
+                rounded-2xl
+                p-5
+                border border-blue-200/40
+                bg-blue-100/40
+                backdrop-blur-xl
+                shadow-[0_10px_26px_rgba(1,31,75,0.10)]
+                hover:shadow-[0_14px_34px_rgba(1,31,75,0.14)]
+                hover:-translate-y-1
+                transition-all duration-300
+              "
+            >
               <h3 className="text-sm font-semibold text-[#011F4B] mb-2">
                 What I Am Focusing On
               </h3>
